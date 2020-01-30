@@ -1,6 +1,13 @@
 const express = require('express');
+const connectDB = require('./config/db');
 
 const app = express();
+
+// Connect Database
+connectDB();
+
+// Init Middleware
+app.use(express.json({extend: false}));
 
 app.get('/', (req, res) => {
   res.json({message: 'Welcome to ContactKepeer'});
